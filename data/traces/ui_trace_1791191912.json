@@ -1,0 +1,222 @@
+{
+  "query": "what is rag",
+  "final_answer": "Retrieval-Augmented Generation (RAG) is a system that combines a retriever with a generator [source: C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md]. The retriever finds relevant passages from a document corpus, and the generator (typically a large language model) produces an answer that is grounded in those passages [source: C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md]. RAG helps reduce hallucinations compared to asking an LLM without external context [source: C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md].",
+  "latency_seconds": 8.051,
+  "retrieval_retry_count": 0,
+  "generation_retry_count": 0,
+  "is_hallucinated": false,
+  "transition_log": [
+    {
+      "node": "query_analyser",
+      "timestamp": "2026-10-05T09:18:34.499376+00:00",
+      "summary": "Classified as factual with 1 entities",
+      "changed_fields": {
+        "query_type": "factual",
+        "entities": [
+          "RAG"
+        ],
+        "analysis_rationale": "The user is asking for a direct definition of a single concept."
+      }
+    },
+    {
+      "node": "query_rewriter",
+      "timestamp": "2026-10-05T09:18:35.716885+00:00",
+      "summary": "Produced 1 rewritten queries",
+      "changed_fields": {
+        "rewritten_queries": [
+          "Retrieval-Augmented Generation RAG definition and overview"
+        ]
+      }
+    },
+    {
+      "node": "retriever",
+      "timestamp": "2026-10-05T09:18:35.772140+00:00",
+      "summary": "Retrieved 3 chunks via multi_query",
+      "changed_fields": {
+        "num_chunks": 3,
+        "mode": "multi_query",
+        "top_score": 0.6247219741949375
+      }
+    },
+    {
+      "node": "relevance_grader",
+      "timestamp": "2026-10-05T09:18:38.068493+00:00",
+      "summary": "avg_relevance=0.600, quality_ok=True, will_retry=False",
+      "changed_fields": {
+        "avg_relevance": 0.6,
+        "retrieval_quality_ok": true,
+        "will_retry": false,
+        "grades": [
+          {
+            "chunk_index": 0,
+            "score": 1.0,
+            "reason": "The passage directly defines Retrieval-Augmented Generation (RAG) and explains its components."
+          },
+          {
+            "chunk_index": 1,
+            "score": 0.2,
+            "reason": "The passage mentions RAG systems in the context of evaluation metrics and mentions components like relevance grading and multi-query retrieval, but it does not define what RAG is."
+          }
+        ]
+      }
+    },
+    {
+      "node": "answer_generator",
+      "timestamp": "2026-10-05T09:18:39.474457+00:00",
+      "summary": "Generated answer (742 chars), regenerate=False",
+      "changed_fields": {
+        "answer_preview": "Retrieval-Augmented Generation (RAG) is a system that combines a retriever with a generator [source: C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\dat"
+      }
+    },
+    {
+      "node": "hallucination_checker",
+      "timestamp": "2026-10-05T09:18:40.435106+00:00",
+      "summary": "is_hallucinated=False, will_retry=False",
+      "changed_fields": {
+        "is_hallucinated": false,
+        "unsupported_claims": [],
+        "will_retry": false
+      }
+    }
+  ],
+  "full_state": {
+    "original_query": "what is rag",
+    "query_type": "factual",
+    "entities": [
+      "RAG"
+    ],
+    "analysis_rationale": "The user is asking for a direct definition of a single concept.",
+    "rewritten_queries": [
+      "Retrieval-Augmented Generation RAG definition and overview"
+    ],
+    "retrieved_chunks": [
+      {
+        "content": "# Sample Research Corpus \u2014 AI Safety & RAG Systems\n\n## What is Retrieval-Augmented Generation?\n\nRetrieval-Augmented Generation (RAG) combines a retriever with a generator.\nThe retriever finds relevant passages from a document corpus. The generator\n(usually a large language model) produces an answer grounded in those passages.\nRAG reduces hallucinations compared to asking an LLM with no external context.\n\n## Limitations of Linear RAG Pipelines\n\nA simple retrieve-then-generate pipeline can fail when:\n1. The retrieved passages are irrelevant to the question.\n2. The model invents facts that are not present in the context.\n3. Multi-hop questions require combining evidence from multiple documents.\n4. There is no recovery mechanism when retrieval quality is poor.",
+        "metadata": {
+          "chunk_id": 1,
+          "file_path": "C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md",
+          "source": "C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md"
+        },
+        "score": 0.6247219741949375,
+        "source": "C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md"
+      },
+      {
+        "content": "## Multi-Query Retrieval\n\nMulti-query retrieval generates several rephrasings of the user question,\nretrieves documents for each rephrasing, then merges and deduplicates results.\nThis improves recall when wording mismatch would otherwise hide relevant text.\n\n## Relevance Grading and Hallucination Checking\n\nA relevance grader scores each retrieved chunk against the original question.\nIf average relevance falls below a threshold, the system can retry retrieval.\nA hallucination checker verifies that claims in the generated answer are\nsupported by the retrieved context. Unsupported claims trigger regeneration.\n\n## Evaluation Metrics for RAG Systems",
+        "metadata": {
+          "file_path": "C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md",
+          "source": "C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md",
+          "chunk_id": 3
+        },
+        "score": 0.4206504740404634,
+        "source": "C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md"
+      },
+      {
+        "content": "## Evaluation Metrics for RAG Systems\n\nCommon evaluation dimensions include answer correctness, hallucination rate,\nwhether retry loops were triggered, and end-to-end latency. Fair comparisons\nshould use the same corpus, embedding model, and test questions for both the\nbaseline pipeline and the graph-based system.",
+        "metadata": {
+          "source": "C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md",
+          "file_path": "C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md",
+          "chunk_id": 4
+        },
+        "score": 0.2828851124597527,
+        "source": "C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md"
+      }
+    ],
+    "relevance_grades": [
+      {
+        "chunk_index": 0,
+        "score": 1.0,
+        "reason": "The passage directly defines Retrieval-Augmented Generation (RAG) and explains its components."
+      },
+      {
+        "chunk_index": 1,
+        "score": 0.2,
+        "reason": "The passage mentions RAG systems in the context of evaluation metrics and mentions components like relevance grading and multi-query retrieval, but it does not define what RAG is."
+      }
+    ],
+    "avg_relevance": 0.6,
+    "retrieval_quality_ok": true,
+    "answer_draft": "Retrieval-Augmented Generation (RAG) is a system that combines a retriever with a generator [source: C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md]. The retriever finds relevant passages from a document corpus, and the generator (typically a large language model) produces an answer that is grounded in those passages [source: C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md]. RAG helps reduce hallucinations compared to asking an LLM without external context [source: C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md].",
+    "final_answer": "Retrieval-Augmented Generation (RAG) is a system that combines a retriever with a generator [source: C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md]. The retriever finds relevant passages from a document corpus, and the generator (typically a large language model) produces an answer that is grounded in those passages [source: C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md]. RAG helps reduce hallucinations compared to asking an LLM without external context [source: C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md].",
+    "is_hallucinated": false,
+    "unsupported_claims": [],
+    "hallucination_notes": "The answer is fully grounded in the provided context.",
+    "retrieval_retry_count": 0,
+    "generation_retry_count": 0,
+    "max_retrieval_retries": 1,
+    "max_generation_retries": 1,
+    "transition_log": [
+      {
+        "node": "query_analyser",
+        "timestamp": "2026-10-05T09:18:34.499376+00:00",
+        "summary": "Classified as factual with 1 entities",
+        "changed_fields": {
+          "query_type": "factual",
+          "entities": [
+            "RAG"
+          ],
+          "analysis_rationale": "The user is asking for a direct definition of a single concept."
+        }
+      },
+      {
+        "node": "query_rewriter",
+        "timestamp": "2026-10-05T09:18:35.716885+00:00",
+        "summary": "Produced 1 rewritten queries",
+        "changed_fields": {
+          "rewritten_queries": [
+            "Retrieval-Augmented Generation RAG definition and overview"
+          ]
+        }
+      },
+      {
+        "node": "retriever",
+        "timestamp": "2026-10-05T09:18:35.772140+00:00",
+        "summary": "Retrieved 3 chunks via multi_query",
+        "changed_fields": {
+          "num_chunks": 3,
+          "mode": "multi_query",
+          "top_score": 0.6247219741949375
+        }
+      },
+      {
+        "node": "relevance_grader",
+        "timestamp": "2026-10-05T09:18:38.068493+00:00",
+        "summary": "avg_relevance=0.600, quality_ok=True, will_retry=False",
+        "changed_fields": {
+          "avg_relevance": 0.6,
+          "retrieval_quality_ok": true,
+          "will_retry": false,
+          "grades": [
+            {
+              "chunk_index": 0,
+              "score": 1.0,
+              "reason": "The passage directly defines Retrieval-Augmented Generation (RAG) and explains its components."
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.2,
+              "reason": "The passage mentions RAG systems in the context of evaluation metrics and mentions components like relevance grading and multi-query retrieval, but it does not define what RAG is."
+            }
+          ]
+        }
+      },
+      {
+        "node": "answer_generator",
+        "timestamp": "2026-10-05T09:18:39.474457+00:00",
+        "summary": "Generated answer (742 chars), regenerate=False",
+        "changed_fields": {
+          "answer_preview": "Retrieval-Augmented Generation (RAG) is a system that combines a retriever with a generator [source: C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\dat"
+        }
+      },
+      {
+        "node": "hallucination_checker",
+        "timestamp": "2026-10-05T09:18:40.435106+00:00",
+        "summary": "is_hallucinated=False, will_retry=False",
+        "changed_fields": {
+          "is_hallucinated": false,
+          "unsupported_claims": [],
+          "will_retry": false
+        }
+      }
+    ]
+  }
+}

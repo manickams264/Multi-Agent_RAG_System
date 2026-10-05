@@ -1,0 +1,42 @@
+# Environment & secrets
+.env
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+dist/
+build/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Data artifacts (keep structure, ignore heavy stores)
+data/vector_store/*
+!data/vector_store/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+# Keep raw sample docs if small; ignore large dumps
+*.bin
+*.faiss
+*.pkl
+*.sqlite
+*.sqlite3
+*.db
+
+# Notebooks checkpoints
+.ipynb_checkpoints/
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store

@@ -1,0 +1,59 @@
+question,system,answer,accuracy,retry_triggered,retrieval_retries,generation_retries,hallucination_flagged,latency_seconds,error
+What is Retrieval-Augmented Generation?,langgraph,"Based on the provided document, Retrieval-Augmented Generation (RAG) is a system that combines a retriever with a generator [source: sample_corpus.md]. The retriever finds relevant passages from a document corpus, and the generator (typically a large language model) produces an answer that is grounded in those passages, which helps reduce hallucinations compared to asking an LLM without external context [source: sample_corpus.md].",,False,0,0,False,31.845,
+Why do linear RAG pipelines fail on complex questions?,langgraph,"Based on the provided context, linear RAG pipelines can fail on complex questions (such as multi-hop questions) due to the following reasons:
+
+1. The retrieved passages are irrelevant to the question [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].
+2. The model invents facts that are not present in the context [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].
+3. Multi-hop questions require combining evidence from multiple documents, which simple pipelines struggle with [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].
+4. There is no recovery mechanism when retrieval quality is poor [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].",,False,0,0,False,15.57,
+How does LangGraph help build stateful multi-agent RAG systems?,langgraph,"Based on the provided context, LangGraph helps build stateful multi-agent RAG systems by allowing developers to:
+
+* Build graphs of specialized nodes that share a typed state [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].
+* Use conditional edges to route execution based on intermediate results [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].
+* Use cycles to enable recovery loops, such as re-retrieving when relevance is low or regenerating when hallucinations are detected [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].",,False,0,0,False,18.337,
+What are the four query types used in research assistants?,langgraph,"Based on the provided document, the four query types used in research assistants are:
+
+- Factual
+- Multi-hop
+- Comparative
+- Unanswerable
+
+[source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md]",,False,0,0,False,15.917,
+Explain multi-query retrieval and why it improves recall.,langgraph,"Based on the provided documents, multi-query retrieval is a technique that generates several rephrasings of a user question, retrieves documents for each of those rephrasings, and then merges and deduplicates the results [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md]. 
+
+It improves recall by preventing situations where a ""wording mismatch would otherwise hide relevant text"" [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].",,False,0,0,False,16.184,
+What does a relevance grader do in a RAG graph?,langgraph,"A relevance grader scores each retrieved chunk against the original question. If the average relevance falls below a threshold, the system can retry retrieval [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].",,False,0,0,False,18.278,
+How does a hallucination checker improve answer faithfulness?,langgraph,"Based on the provided context, a hallucination checker improves answer faithfulness by verifying that the claims in the generated answer are supported by the retrieved context [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md]. If there are any unsupported claims, it triggers the regeneration of the answer [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].",,False,0,0,False,16.49,
+What evaluation metrics are recommended for comparing RAG systems?,langgraph,"Based on the provided document, the recommended evaluation dimensions for comparing RAG systems are:
+
+* Answer correctness
+* Hallucination rate
+* Whether retry loops were triggered
+* End-to-end latency
+
+[source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md]",,False,0,0,False,15.557,
+What is parent-document retrieval?,langgraph,"Parent-document retrieval is a technique that embeds small child chunks for precise search, but returns larger parent passages to the generator so that answers have fuller context [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\langgraph_notes.md].",,True,1,0,False,133.466,
+What is step-back prompting?,langgraph,"Step-back prompting is an optional technique that first retrieves broader background context, then retrieves specific details, and combines both before generation [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\langgraph_notes.md].",,True,1,0,False,36.445,
+Compare factual and multi-hop research questions.,langgraph,"Based on the provided context, research questions are compared in the following ways:
+
+* **Factual:** These questions can be answered using a single fact [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].
+* **Multi-hop:** These questions require information to be combined across multiple passages [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].",,False,0,0,False,19.929,
+What recovery loops can a LangGraph RAG system implement?,langgraph,"Based on the provided documents, a LangGraph RAG system can implement recovery loops such as:
+
+* Re-retrieving documents when relevance is low [source: sample_corpus.md].
+* Regenerating answers when hallucinations are detected [source: sample_corpus.md].",,True,1,0,False,16.569,
+How should baseline and graph systems be compared fairly?,langgraph,"To compare baseline and graph systems fairly, you should use the same corpus, embedding model, and test questions for both systems [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].",,False,0,0,False,28.832,
+What information should a state transition log include?,langgraph,"Based on the provided context, a state transition log should include:
+- The node name
+- UTC timestamp
+- A short summary of fields that changed
+
+[source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\langgraph_notes.md]",,False,0,0,False,9.246,
+Why is typed shared state important in multi-agent graphs?,langgraph,"Based on the provided context, typed shared state is important in multi-agent graphs because it is shared among the specialized nodes that make up the graph [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].",,False,0,0,False,8.729,
+When should a system answer that it cannot answer from documents?,langgraph,"Based on the provided documents, there is no mention of when a system should answer that it cannot answer from the documents. Therefore, I cannot answer from the available documents.",,True,1,0,False,58.815,
+What happens when retrieval quality is below a threshold?,langgraph,"When average relevance falls below a threshold, the system can retry retrieval [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].",,False,0,0,False,11.742,
+What happens when unsupported claims are found in an answer?,langgraph,"When unsupported claims are found in an answer, it triggers regeneration [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].",,False,0,0,False,11.619,
+Name one limitation of retrieve-then-generate pipelines.,langgraph,"Based on the provided context, one limitation of retrieve-then-generate pipelines is that the retrieved passages can be irrelevant to the question [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md]. 
+
+*(Note: Other listed limitations include the model inventing facts not present in the context, multi-hop questions requiring evidence from multiple documents, and a lack of a recovery mechanism when retrieval quality is poor.)*",,False,0,0,False,16.098,
+How does multi-query retrieval merge results?,langgraph,"Based on the provided context, multi-query retrieval merges results by merging and deduplicating the documents retrieved for each generated rephrasing of the user question [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].",,False,0,0,False,27.906,

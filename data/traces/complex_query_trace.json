@@ -1,0 +1,321 @@
+{
+  "query": "Compare factual and multi-hop questions and explain how recovery loops help RAG.",
+  "final_answer": "Based on the provided context:\n\n* **Factual and multi-hop questions:** The text does not provide a direct comparison between factual and multi-hop questions, but it notes that **multi-hop questions** require combining evidence from multiple documents [source: C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md]. \n* **How recovery loops help RAG:** The provided context mentions that a simple retrieve-then-generate pipeline can fail when there is no recovery mechanism when retrieval quality is poor [source: C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md]. However, it does not specifically explain how recovery loops help RAG beyond identifying the lack of such a mechanism as a limitation [source: C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md]. \n\nTherefore, the available documents are insufficient to fully answer how recovery loops help or to give a complete comparison of factual versus multi-hop questions.",
+  "latency_seconds": 16.348,
+  "retrieval_retry_count": 1,
+  "generation_retry_count": 0,
+  "is_hallucinated": false,
+  "transition_log": [
+    {
+      "node": "query_analyser",
+      "timestamp": "2026-09-29T05:45:52.755752+00:00",
+      "summary": "Classified as comparative with 4 entities",
+      "changed_fields": {
+        "query_type": "comparative",
+        "entities": [
+          "factual questions",
+          "multi-hop questions",
+          "recovery loops",
+          "RAG"
+        ],
+        "analysis_rationale": "The user asks to compare two types of questions and explain the role of recovery loops in RAG."
+      }
+    },
+    {
+      "node": "query_rewriter",
+      "timestamp": "2026-09-29T05:45:53.999361+00:00",
+      "summary": "Produced 3 rewritten queries",
+      "changed_fields": {
+        "rewritten_queries": [
+          "characteristics and retrieval strategies for factual questions in RAG",
+          "multi-hop question answering and reasoning process in retrieval augmented generation",
+          "role and mechanism of recovery loops in improving RAG system performance"
+        ]
+      }
+    },
+    {
+      "node": "retriever",
+      "timestamp": "2026-09-29T05:45:54.071695+00:00",
+      "summary": "Retrieved 5 chunks via multi_query",
+      "changed_fields": {
+        "num_chunks": 5,
+        "mode": "multi_query",
+        "top_score": 0.5176584001182903
+      }
+    },
+    {
+      "node": "relevance_grader",
+      "timestamp": "2026-09-29T05:45:56.945799+00:00",
+      "summary": "avg_relevance=0.400, quality_ok=False, will_retry=True",
+      "changed_fields": {
+        "avg_relevance": 0.4,
+        "retrieval_quality_ok": false,
+        "will_retry": true,
+        "grades": [
+          {
+            "chunk_index": 0,
+            "score": 0.4,
+            "reason": "The passage mentions limitations regarding multi-hop questions and the lack of recovery mechanisms, but it does not compare factual and multi-hop questions or explain how recovery loops help RAG."
+          },
+          {
+            "chunk_index": 1,
+            "score": 0.4,
+            "reason": "The passage touches on relevance grading and retry mechanisms (similar to recovery loops) but does not discuss factual questions, compare them to multi-hop questions, or explain how recovery loops help RAG comprehensively."
+          }
+        ]
+      }
+    },
+    {
+      "node": "retriever",
+      "timestamp": "2026-09-29T05:45:56.988816+00:00",
+      "summary": "Retrieved 5 chunks via multi_query",
+      "changed_fields": {
+        "num_chunks": 5,
+        "mode": "multi_query",
+        "top_score": 0.5176584001182903
+      }
+    },
+    {
+      "node": "relevance_grader",
+      "timestamp": "2026-09-29T05:46:01.725053+00:00",
+      "summary": "avg_relevance=0.350, quality_ok=False, will_retry=False",
+      "changed_fields": {
+        "avg_relevance": 0.35,
+        "retrieval_quality_ok": false,
+        "will_retry": false,
+        "grades": [
+          {
+            "chunk_index": 0,
+            "score": 0.4,
+            "reason": "The passage mentions multi-hop questions and recovery mechanisms as limitations of linear RAG, but it does not compare factual and multi-hop questions or explain how recovery loops help RAG."
+          },
+          {
+            "chunk_index": 1,
+            "score": 0.3,
+            "reason": "The passage discusses relevance grading and multi-query retrieval, but does not explain factual questions, multi-hop questions, or how recovery loops help RAG."
+          }
+        ]
+      }
+    },
+    {
+      "node": "answer_generator",
+      "timestamp": "2026-09-29T05:46:04.374063+00:00",
+      "summary": "Generated answer (1137 chars), regenerate=False",
+      "changed_fields": {
+        "answer_preview": "Based on the provided context:\n\n* **Factual and multi-hop questions:** The text does not provide a direct comparison between factual and multi-hop questions, but it notes that **multi-hop questions** "
+      }
+    },
+    {
+      "node": "hallucination_checker",
+      "timestamp": "2026-09-29T05:46:07.026330+00:00",
+      "summary": "is_hallucinated=False, will_retry=False",
+      "changed_fields": {
+        "is_hallucinated": false,
+        "unsupported_claims": [],
+        "will_retry": false
+      }
+    }
+  ],
+  "full_state": {
+    "original_query": "Compare factual and multi-hop questions and explain how recovery loops help RAG.",
+    "query_type": "comparative",
+    "entities": [
+      "factual questions",
+      "multi-hop questions",
+      "recovery loops",
+      "RAG"
+    ],
+    "analysis_rationale": "The user asks to compare two types of questions and explain the role of recovery loops in RAG.",
+    "rewritten_queries": [
+      "characteristics and retrieval strategies for factual questions in RAG",
+      "multi-hop question answering and reasoning process in retrieval augmented generation",
+      "role and mechanism of recovery loops in improving RAG system performance"
+    ],
+    "retrieved_chunks": [
+      {
+        "content": "# Sample Research Corpus \u2014 AI Safety & RAG Systems\n\n## What is Retrieval-Augmented Generation?\n\nRetrieval-Augmented Generation (RAG) combines a retriever with a generator.\nThe retriever finds relevant passages from a document corpus. The generator\n(usually a large language model) produces an answer grounded in those passages.\nRAG reduces hallucinations compared to asking an LLM with no external context.\n\n## Limitations of Linear RAG Pipelines\n\nA simple retrieve-then-generate pipeline can fail when:\n1. The retrieved passages are irrelevant to the question.\n2. The model invents facts that are not present in the context.\n3. Multi-hop questions require combining evidence from multiple documents.\n4. There is no recovery mechanism when retrieval quality is poor.",
+        "metadata": {
+          "file_path": "C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md",
+          "chunk_id": 1,
+          "source": "C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md"
+        },
+        "score": 0.5176584001182903,
+        "source": "C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md"
+      },
+      {
+        "content": "## Multi-Query Retrieval\n\nMulti-query retrieval generates several rephrasings of the user question,\nretrieves documents for each rephrasing, then merges and deduplicates results.\nThis improves recall when wording mismatch would otherwise hide relevant text.\n\n## Relevance Grading and Hallucination Checking\n\nA relevance grader scores each retrieved chunk against the original question.\nIf average relevance falls below a threshold, the system can retry retrieval.\nA hallucination checker verifies that claims in the generated answer are\nsupported by the retrieved context. Unsupported claims trigger regeneration.\n\n## Evaluation Metrics for RAG Systems",
+        "metadata": {
+          "file_path": "C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md",
+          "chunk_id": 3,
+          "source": "C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md"
+        },
+        "score": 0.42247319879801404,
+        "source": "C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md"
+      },
+      {
+        "content": "## LangGraph for Stateful Multi-Agent RAG\n\nLangGraph lets developers build graphs of specialized nodes that share a typed\nstate. Conditional edges can route execution based on intermediate results.\nCycles enable recovery loops such as re-retrieving when relevance is low, or\nregenerating when hallucinations are detected.\n\n## Query Types in Research Assistants\n\nResearch questions are often classified as:\n- Factual: a single fact can answer the question.\n- Multi-hop: information must be combined across passages.\n- Comparative: two or more entities or concepts are compared.\n- Unanswerable: the corpus does not contain enough information.\n\n## Multi-Query Retrieval",
+        "metadata": {
+          "chunk_id": 2,
+          "file_path": "C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md",
+          "source": "C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md"
+        },
+        "score": 0.3554941857877745,
+        "source": "C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md"
+      },
+      {
+        "content": "## Evaluation Metrics for RAG Systems\n\nCommon evaluation dimensions include answer correctness, hallucination rate,\nwhether retry loops were triggered, and end-to-end latency. Fair comparisons\nshould use the same corpus, embedding model, and test questions for both the\nbaseline pipeline and the graph-based system.",
+        "metadata": {
+          "file_path": "C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md",
+          "chunk_id": 4,
+          "source": "C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md"
+        },
+        "score": 0.28782699903504905,
+        "source": "C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md"
+      },
+      {
+        "content": "# LangGraph Checkpointing Notes\n\nLangGraph supports checkpointing so graph state can be inspected after each node.\nMemorySaver stores checkpoints in process memory. For durable runs, a SQLite\ncheckpointer can persist state to disk. State transition logs should record the\nnode name, UTC timestamp, and a short summary of fields that changed.\n\n## Parent Document Retrieval (optional technique)\n\nParent-document retrieval embeds small child chunks for precise search, but\nreturns larger parent passages to the generator so answers have fuller context.\n\n## Step-Back Prompting (optional technique)\n\nStep-back prompting first retrieves broader background context, then retrieves\nspecific details, and combines both before generation.",
+        "metadata": {
+          "chunk_id": 0,
+          "source": "C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\langgraph_notes.md",
+          "file_path": "C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\langgraph_notes.md"
+        },
+        "score": -0.03918845980594621,
+        "source": "C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\langgraph_notes.md"
+      }
+    ],
+    "relevance_grades": [
+      {
+        "chunk_index": 0,
+        "score": 0.4,
+        "reason": "The passage mentions multi-hop questions and recovery mechanisms as limitations of linear RAG, but it does not compare factual and multi-hop questions or explain how recovery loops help RAG."
+      },
+      {
+        "chunk_index": 1,
+        "score": 0.3,
+        "reason": "The passage discusses relevance grading and multi-query retrieval, but does not explain factual questions, multi-hop questions, or how recovery loops help RAG."
+      }
+    ],
+    "avg_relevance": 0.35,
+    "retrieval_quality_ok": true,
+    "answer_draft": "Based on the provided context:\n\n* **Factual and multi-hop questions:** The text does not provide a direct comparison between factual and multi-hop questions, but it notes that **multi-hop questions** require combining evidence from multiple documents [source: C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md]. \n* **How recovery loops help RAG:** The provided context mentions that a simple retrieve-then-generate pipeline can fail when there is no recovery mechanism when retrieval quality is poor [source: C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md]. However, it does not specifically explain how recovery loops help RAG beyond identifying the lack of such a mechanism as a limitation [source: C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md]. \n\nTherefore, the available documents are insufficient to fully answer how recovery loops help or to give a complete comparison of factual versus multi-hop questions.",
+    "final_answer": "Based on the provided context:\n\n* **Factual and multi-hop questions:** The text does not provide a direct comparison between factual and multi-hop questions, but it notes that **multi-hop questions** require combining evidence from multiple documents [source: C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md]. \n* **How recovery loops help RAG:** The provided context mentions that a simple retrieve-then-generate pipeline can fail when there is no recovery mechanism when retrieval quality is poor [source: C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md]. However, it does not specifically explain how recovery loops help RAG beyond identifying the lack of such a mechanism as a limitation [source: C:\\Users\\manickam.s\\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\\Documents\\Multi-Agent_RAG_System\\data\\raw\\sample_corpus.md]. \n\nTherefore, the available documents are insufficient to fully answer how recovery loops help or to give a complete comparison of factual versus multi-hop questions.",
+    "is_hallucinated": false,
+    "unsupported_claims": [],
+    "hallucination_notes": "The answer accurately reflects the content of the provided text and correctly notes the limitations of the context regarding recovery loops, while utilizing the available definitions for query types.",
+    "retrieval_retry_count": 1,
+    "generation_retry_count": 0,
+    "max_retrieval_retries": 1,
+    "max_generation_retries": 1,
+    "transition_log": [
+      {
+        "node": "query_analyser",
+        "timestamp": "2026-09-29T05:45:52.755752+00:00",
+        "summary": "Classified as comparative with 4 entities",
+        "changed_fields": {
+          "query_type": "comparative",
+          "entities": [
+            "factual questions",
+            "multi-hop questions",
+            "recovery loops",
+            "RAG"
+          ],
+          "analysis_rationale": "The user asks to compare two types of questions and explain the role of recovery loops in RAG."
+        }
+      },
+      {
+        "node": "query_rewriter",
+        "timestamp": "2026-09-29T05:45:53.999361+00:00",
+        "summary": "Produced 3 rewritten queries",
+        "changed_fields": {
+          "rewritten_queries": [
+            "characteristics and retrieval strategies for factual questions in RAG",
+            "multi-hop question answering and reasoning process in retrieval augmented generation",
+            "role and mechanism of recovery loops in improving RAG system performance"
+          ]
+        }
+      },
+      {
+        "node": "retriever",
+        "timestamp": "2026-09-29T05:45:54.071695+00:00",
+        "summary": "Retrieved 5 chunks via multi_query",
+        "changed_fields": {
+          "num_chunks": 5,
+          "mode": "multi_query",
+          "top_score": 0.5176584001182903
+        }
+      },
+      {
+        "node": "relevance_grader",
+        "timestamp": "2026-09-29T05:45:56.945799+00:00",
+        "summary": "avg_relevance=0.400, quality_ok=False, will_retry=True",
+        "changed_fields": {
+          "avg_relevance": 0.4,
+          "retrieval_quality_ok": false,
+          "will_retry": true,
+          "grades": [
+            {
+              "chunk_index": 0,
+              "score": 0.4,
+              "reason": "The passage mentions limitations regarding multi-hop questions and the lack of recovery mechanisms, but it does not compare factual and multi-hop questions or explain how recovery loops help RAG."
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.4,
+              "reason": "The passage touches on relevance grading and retry mechanisms (similar to recovery loops) but does not discuss factual questions, compare them to multi-hop questions, or explain how recovery loops help RAG comprehensively."
+            }
+          ]
+        }
+      },
+      {
+        "node": "retriever",
+        "timestamp": "2026-09-29T05:45:56.988816+00:00",
+        "summary": "Retrieved 5 chunks via multi_query",
+        "changed_fields": {
+          "num_chunks": 5,
+          "mode": "multi_query",
+          "top_score": 0.5176584001182903
+        }
+      },
+      {
+        "node": "relevance_grader",
+        "timestamp": "2026-09-29T05:46:01.725053+00:00",
+        "summary": "avg_relevance=0.350, quality_ok=False, will_retry=False",
+        "changed_fields": {
+          "avg_relevance": 0.35,
+          "retrieval_quality_ok": false,
+          "will_retry": false,
+          "grades": [
+            {
+              "chunk_index": 0,
+              "score": 0.4,
+              "reason": "The passage mentions multi-hop questions and recovery mechanisms as limitations of linear RAG, but it does not compare factual and multi-hop questions or explain how recovery loops help RAG."
+            },
+            {
+              "chunk_index": 1,
+              "score": 0.3,
+              "reason": "The passage discusses relevance grading and multi-query retrieval, but does not explain factual questions, multi-hop questions, or how recovery loops help RAG."
+            }
+          ]
+        }
+      },
+      {
+        "node": "answer_generator",
+        "timestamp": "2026-09-29T05:46:04.374063+00:00",
+        "summary": "Generated answer (1137 chars), regenerate=False",
+        "changed_fields": {
+          "answer_preview": "Based on the provided context:\n\n* **Factual and multi-hop questions:** The text does not provide a direct comparison between factual and multi-hop questions, but it notes that **multi-hop questions** "
+        }
+      },
+      {
+        "node": "hallucination_checker",
+        "timestamp": "2026-09-29T05:46:07.026330+00:00",
+        "summary": "is_hallucinated=False, will_retry=False",
+        "changed_fields": {
+          "is_hallucinated": false,
+          "unsupported_claims": [],
+          "will_retry": false
+        }
+      }
+    ]
+  }
+}

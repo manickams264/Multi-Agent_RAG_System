@@ -1,0 +1,44 @@
+question,system,answer,accuracy,retry_triggered,retrieval_retries,generation_retries,hallucination_flagged,latency_seconds,error
+What is Retrieval-Augmented Generation?,plain_similarity,"Retrieval-Augmented Generation (RAG) is a system that combines a retriever with a generator [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md]. The retriever finds relevant passages from a document corpus, and the generator (typically a large language model) produces an answer grounded in those passages, which helps reduce hallucinations compared to asking an LLM without external context [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].",,False,0,0,False,8.769,
+Why do linear RAG pipelines fail on complex questions?,plain_similarity,"Based on the provided context, linear RAG pipelines can fail on complex questions due to the following reasons:
+
+1. The retrieved passages may be irrelevant to the question [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].
+2. The model may invent facts that are not present in the context [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].
+3. Multi-hop questions require combining evidence from multiple documents [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].
+4. There is no recovery mechanism when retrieval quality is poor [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].",,False,0,0,False,8.527,
+How does LangGraph help build stateful multi-agent RAG systems?,plain_similarity,,unable_to_answer,False,0,0,False,81.901,"All Gemini models failed (overloaded or unavailable). Wait 1–2 minutes and retry, or change GEMINI_CHAT_MODEL in .env (try gemini-3.5-flash-lite or gemini-3.8-flash)."
+What are the four query types used in research assistants?,plain_similarity,"Based on the provided context, the four query types used in research assistants are:
+
+1. **Factual**: a single fact can answer the question [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].
+2. **Multi-hop**: information must be combined across passages [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].
+3. **Comparative**: two or more entities or concepts are compared [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].
+4. **Unanswerable**: the corpus does not contain enough information [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].",,False,0,0,False,11.463,
+Explain multi-query retrieval and why it improves recall.,plain_similarity,"Based on the provided documents, multi-query retrieval is a technique that generates several rephrasings of a user's question, retrieves documents for each individual rephrasing, and then merges and deduplicates the results [source: sample_corpus.md]. 
+
+It improves recall because it overcomes wording mismatches that would otherwise hide relevant text from being retrieved [source: sample_corpus.md].",,False,0,0,False,13.228,
+What does a relevance grader do in a RAG graph?,plain_similarity,"Based on the provided documents, a relevance grader scores each retrieved chunk against the original question [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md]. If the average relevance falls below a threshold, the system can retry retrieval [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].",,False,0,0,False,8.051,
+How does a hallucination checker improve answer faithfulness?,plain_similarity,"A hallucination checker verifies that claims made in the generated answer are supported by the retrieved context, and any unsupported claims trigger regeneration [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].",,False,0,0,False,52.127,
+What evaluation metrics are recommended for comparing RAG systems?,plain_similarity,"Based on the provided document, the recommended evaluation dimensions for comparing RAG systems are:
+
+* Answer correctness [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md]
+* Hallucination rate [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md]
+* Whether retry loops were triggered [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md]
+* End-to-end latency [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md]",,False,0,0,False,12.064,
+What is parent-document retrieval?,plain_similarity,"Parent-document retrieval is a technique where small child chunks are embedded for precise search, but larger parent passages are returned to the generator so that the answers have fuller context [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\langgraph_notes.md].",,True,1,0,False,12.894,
+What is step-back prompting?,plain_similarity,"Step-back prompting is an optional technique that first retrieves broader background context, then retrieves specific details, and combines both before generation [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\langgraph_notes.md].",,True,1,0,False,38.203,
+Compare factual and multi-hop research questions.,plain_similarity,"Based on the provided document, research questions are classified as follows:
+
+* **Factual:** A single fact can answer the question [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].
+* **Multi-hop:** Information must be combined across passages [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].",,False,0,0,False,25.845,
+What recovery loops can a LangGraph RAG system implement?,plain_similarity,"Based on the provided context, a LangGraph RAG system can implement the following recovery loops:
+
+1. **Retrieval retry:** If the average relevance score of the retrieved chunks falls below a threshold (as determined by a relevance grader), the system can retry retrieval [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].
+2. **Regeneration:** If a hallucination checker finds that claims in the generated answer are not supported by the retrieved context, it triggers regeneration [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].",,False,0,0,False,7.636,
+How should baseline and graph systems be compared fairly?,plain_similarity,"To compare baseline and graph systems fairly, you should use the same corpus, embedding model, and test questions for both systems [source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\sample_corpus.md].",,False,0,0,False,14.948,
+What information should a state transition log include?,plain_similarity,"Based on the provided context, a state transition log should include:
+- The node name
+- UTC timestamp
+- A short summary of fields that changed
+
+[source: C:\Users\manickam.s\OneDrive - InTimeTec Visionsoft Pvt. Ltd.,\Documents\Multi-Agent_RAG_System\data\raw\langgraph_notes.md]",,False,0,0,False,24.501,
+Why is typed shared state important in multi-agent graphs?,plain_similarity,,unable_to_answer,False,0,0,False,100.166,[WinError 10053] An established connection was aborted by the software in your host machine
